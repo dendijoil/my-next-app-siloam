@@ -7,7 +7,7 @@ const Dashboard = () => {
     <div className="flex">
       <div className="flex-1 p-6">
         <h1 className="text-2xl font-bold">Dashboard</h1>
-        <p>Welcome {user.username}, you are logged in. Navigate to your dashboard!</p>
+        <p>Welcome {user?.username || ""}, you are logged in. Navigate to your dashboard!</p>
       </div>
     </div>
   );
