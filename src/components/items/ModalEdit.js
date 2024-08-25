@@ -44,7 +44,7 @@ const ModalEdit = ({ item, onClose }) => {
           icon: "success",
           confirmButtonText: "OK",
         }).then(() => {
-          onClose(); // Close modal on success
+          onClose();
         });
       },
       onError: (error, updatedItem, context) => {

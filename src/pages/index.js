@@ -1,16 +1,11 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-
-const users = [
-  { username: 'admin', password: 'admin123', role: 'admin' },
-  { username: 'user', password: 'user123', role: 'user' },
-  { username: 'kepalagudang1@mail.com', password: 'qwerty123', role: 'admin' },
-];
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { users } from "@/data/users";
 
 export default function Home() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const router = useRouter();
 
   const handleLogin = (e) => {
@@ -19,19 +14,20 @@ export default function Home() {
       (u) => u.username === username && u.password === password
     );
     if (user) {
-      // Store user data (for simplicity, using localStorage here)
-      localStorage.setItem('user', JSON.stringify(user));
-      router.push('/dashboard'); // Redirect to dashboard page
+      localStorage.setItem("user", JSON.stringify(user));
+      router.push("/dashboard");
     } else {
-      setError('Invalid username or password');
+      setError("Invalid username or password");
     }
   };
 
   useEffect(() => {
-    // Check if the user is already logged in
-    const user = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null;
+    const user =
+      typeof window !== "undefined"
+        ? JSON.parse(localStorage.getItem("user"))
+        : null;
     if (user) {
-      router.push('/dashboard'); // Redirect to dashboard if already logged in
+      router.push("/dashboard");
     }
   }, [router]);
 

@@ -6,7 +6,7 @@ const Sidebar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('user');
-    router.push('/'); // Redirect to login page
+    router.push('/');
   };
 
   return (
